@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import {
-  SET_SUGGESTS, CLEAR_SUGGESTS, SET_KEYWORD, CLEAR_KEYWORD
+  SUCCESS_SUGGESTS, CLEAR_SUGGESTS, SET_KEYWORD, CLEAR_KEYWORD
 } from './actions';
 
 const initial = {
@@ -16,7 +16,7 @@ const initial = {
 const handlers = {
   app: {},
   search: {
-    [SET_SUGGESTS]: (state, action) => {
+    [SUCCESS_SUGGESTS]: (state, action) => {
       return { ...state, suggests: action.payload };
     },
     [CLEAR_SUGGESTS]: (state, action) => {

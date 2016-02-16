@@ -1,15 +1,16 @@
-import * as saga from 'redux-saga';
+import { takeEvery, effects } from 'redux-saga';
 import {
-  REQUEST_SUGGESTS
+  FETCH_SUGGESTS, successSuggest
 } from './actions';
+import API from './api';
 
-const { take, call, put } = saga;
+const { call, put } = effects;
 
-export function* fetchSuggests() {
-  yield call();
-  yield put();
+function* fetchSuggests(action) {
+  const suggestions = yield call(API.suggest, action.payload);
+  yield put(successSuggest(suggestions));
 }
 
 export default function* rootSaga() {
-  yield* take(REQUEST_SUGGESTS, fetchSuggests);
+  yield* takeEvery(FETCH_SUGGESTS, fetchSuggests);
 }

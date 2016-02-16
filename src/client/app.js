@@ -16,17 +16,7 @@ class App extends Component {
   }
 
   handleSuggest({ value }) {
-    const list = [
-      { name: 'Apple' },
-      { name: 'Banana' },
-      { name: 'Cinamon' },
-    ];
-    const inputValue = value.trim().toLowerCase();
-    const inputLength = inputValue.length;
-    const suggests = inputLength === 0 ? [] : list.filter(item =>
-      item.name.toLowerCase().slice(0, inputLength) === inputValue
-    );
-    this.props.dispatch(actions.setSuggests(suggests));
+    this.props.dispatch(actions.fetchSuggests(value));
   }
 
   render() {
