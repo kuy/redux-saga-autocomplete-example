@@ -7,7 +7,7 @@ const app = koa();
 const router = koaRouter();
 
 router.get('/', function *(next) {
-  this.body = 'API server for redux-saga-incsearch-example';
+  this.body = 'API server for redux-saga-autocomplete-example';
 });
 
 router.get('/suggest', function *(next) {

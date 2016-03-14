@@ -18,7 +18,7 @@ npm install
 ### Start server
 
 ```
-npm run server
+npm start
 ```
 
 ### Start client (webpack-dev-server)
